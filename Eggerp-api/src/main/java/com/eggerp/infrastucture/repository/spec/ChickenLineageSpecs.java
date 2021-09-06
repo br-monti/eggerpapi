@@ -21,8 +21,9 @@ public class ChickenLineageSpecs {
 			var predicates = new ArrayList<Predicate>();
 			
 			if (filter.getLineage() != null) {
-				predicates.add(builder.equal(root.get("lineage"), filter.getLineage()));
-			}
+				predicates.add(builder.like(
+						builder.lower(root.get("lineage")), "%" + filter.getLineage().toLowerCase() + "%"));
+			}		
 			
 			
 			return builder.and(predicates.toArray(new Predicate[0]));

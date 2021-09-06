@@ -16,8 +16,8 @@ public class ChickenLineageModelAssembler {
 	@Autowired
 	private ModelMapper modelMapper;
 	
-	public ChickenLineageModel toModel(ChickenLineage cozinha) {
-		return modelMapper.map(cozinha, ChickenLineageModel.class);
+	public ChickenLineageModel toModel(ChickenLineage chickenLineage) {
+		return modelMapper.map(chickenLineage, ChickenLineageModel.class);
 	}
 	
 	public List<ChickenLineageModel> toCollectionModel(List<ChickenLineage> chickenLineages) {
