@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -17,19 +18,20 @@ import lombok.EqualsAndHashCode;
 @Table(name = "chicken_lineage")
 public class ChickenLineage {
 	
+	@NotNull
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+	@NotBlank
 	private String lineage;
 	
-	@NotNull
+	@NotBlank
 	@Column(name = "chicken_color")
 	private String chickenColor;
 	
-	@NotNull
+	@NotBlank
 	private String provider;
 
 }
