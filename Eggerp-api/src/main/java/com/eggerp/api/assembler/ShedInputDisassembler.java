@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.eggerp.api.model.input.ShedInput;
 import com.eggerp.domain.model.Shed;
+import com.eggerp.domain.model.ShedManufacturer;
 
 @Component
 public class ShedInputDisassembler {
@@ -18,6 +19,8 @@ public class ShedInputDisassembler {
 	}
 	
 	public void copyToDomainObject(ShedInput shedInput, Shed shed) {
+		
+		shed.setShedManufacturer(new ShedManufacturer());
 		modelMapper.map(shedInput, shed);
 	}
 	

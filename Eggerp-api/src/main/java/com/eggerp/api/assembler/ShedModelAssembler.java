@@ -22,7 +22,7 @@ public class ShedModelAssembler {
 	
 	public List<ShedModel> toCollectionModel(List<Shed> sheds) {
 		return sheds.stream()
-				.map(cozinha -> toModel(cozinha))
+				.map(shed -> toModel(shed))
 				.collect(Collectors.toList());
 	}
 	

@@ -24,6 +24,8 @@ import com.eggerp.api.assembler.ShedInputDisassembler;
 import com.eggerp.api.assembler.ShedModelAssembler;
 import com.eggerp.api.model.ShedModel;
 import com.eggerp.api.model.input.ShedInput;
+import com.eggerp.domain.exception.ShedManufacturerNotFoundException;
+import com.eggerp.domain.exception.TransactionalException;
 import com.eggerp.domain.filter.ShedFilter;
 import com.eggerp.domain.model.Shed;
 import com.eggerp.domain.repository.ShedRepository;
@@ -69,20 +71,31 @@ public class ShedController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ShedModel create(@RequestBody @Valid ShedInput shedInput) {
-		Shed shed = shedInputDisassembler.toDomainObject(shedInput);
-		shed = shedService.save(shed);
+		try {
+			Shed shed = shedInputDisassembler.toDomainObject(shedInput);
+			shed = shedService.save(shed);
 		
-		return shedModelAssembler.toModel(shed);
+			return shedModelAssembler.toModel(shed);
+		} catch (ShedManufacturerNotFoundException e) {
+			throw new TransactionalException(e.getMessage());
+	}
+		
 	}
 	
 	@PutMapping("/{shedId}")
 	public ShedModel update(@PathVariable Long shedId,
 			@RequestBody @Valid ShedInput shedInput) {
-		Shed shedSaved = shedService.findById(shedId);
-		shedInputDisassembler.copyToDomainObject(shedInput, shedSaved);
-		shedSaved = shedService.save(shedSaved);
 		
-		return shedModelAssembler.toModel(shedSaved);
+		try {
+			Shed shedSaved = shedService.findById(shedId);
+			shedInputDisassembler.copyToDomainObject(shedInput, shedSaved);
+			shedSaved = shedService.save(shedSaved);
+		
+			return shedModelAssembler.toModel(shedSaved);
+		} catch (ShedManufacturerNotFoundException e) {
+			throw new TransactionalException(e.getMessage());
+	}
+		
 	}
 	
 	@DeleteMapping("/{shedId}")

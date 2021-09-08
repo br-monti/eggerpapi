@@ -19,25 +19,25 @@ import lombok.EqualsAndHashCode;
 @Table(name = "shed")
 public class Shed {
 	
-	@NotNull
+	//@NotNull
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
+	//@NotBlank
 	private String name;
 		
-	@NotBlank
+	//@NotBlank
 	private String type;
 	
-	@NotNull
+	//@NotNull
 	private int capacity;
 	
-	@NotBlank
+	//@NotBlank
 	private String model;
 	
-	@NotNull
+	//@NotNull
 	@ManyToOne
 	@JoinColumn(name = "shed_manufacturer_id")
 	private ShedManufacturer shedManufacturer;

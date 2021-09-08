@@ -6,9 +6,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.eggerp.domain.exception.ShedNotFoundException;
 import com.eggerp.domain.exception.EntityInUseException;
+import com.eggerp.domain.exception.ShedNotFoundException;
 import com.eggerp.domain.model.Shed;
+import com.eggerp.domain.model.ShedManufacturer;
 import com.eggerp.domain.repository.ShedRepository;
 
 
@@ -21,8 +22,16 @@ public class ShedService {
 	@Autowired
 	private ShedRepository shedRepository;
 	
+	@Autowired
+	private ShedManufacturerService shedManufacturerService;
+	
 	@Transactional
 	public Shed save(Shed shed) {
+		
+		Long shedManufacturerId = shed.getShedManufacturer().getId();
+		ShedManufacturer shedManufacturer = shedManufacturerService.findById(shedManufacturerId);
+		
+		shed.setShedManufacturer(shedManufacturer);
 		return shedRepository.save(shed);
 	}
 	
