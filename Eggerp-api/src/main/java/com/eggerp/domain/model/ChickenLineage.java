@@ -18,20 +18,20 @@ import lombok.EqualsAndHashCode;
 @Table(name = "chicken_lineage")
 public class ChickenLineage {
 	
-	@NotNull
+	//@NotNull
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
+	//@NotBlank
 	private String lineage;
 	
-	@NotBlank
+	//@NotBlank
 	@Column(name = "chicken_color")
 	private String chickenColor;
 	
-	@NotBlank
+	//@NotBlank
 	private String provider;
 
 }
