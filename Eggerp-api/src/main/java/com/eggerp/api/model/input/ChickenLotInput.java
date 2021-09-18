@@ -13,9 +13,6 @@ import lombok.Setter;
 @Getter
 public class ChickenLotInput {
 	
-	@NotBlank
-	private String name;
-	
 	@NotNull
 	private LocalDate birthDate;
 	
