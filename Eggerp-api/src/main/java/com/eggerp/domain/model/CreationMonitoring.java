@@ -26,35 +26,26 @@ public class CreationMonitoring {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
 	@Column(name = "age_week")
 	private int ageWeek;
-	
-	@NotNull
+
 	@Column(name = "age_day")
 	private int ageDay;
 	
-	@NotNull
 	@Column(name = "date_week")
 	private LocalDate dateWeek;
-		
-	@NotNull
+
 	@Column(name = "body_weight")
 	private int bodyWeight;
-	
-	@NotNull
+
 	private int food;
-	
-	@NotNull
+
 	private int water;
-	
-	@NotNull
+
 	private int discard;
-	
-	@NotNull
+
 	private int mortality;
 	
-	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "chicken_lot_id")
 	private ChickenLot chickenLot;

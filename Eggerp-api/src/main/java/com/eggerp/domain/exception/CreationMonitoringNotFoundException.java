@@ -1,0 +1,15 @@
+package com.eggerp.domain.exception;
+
+public class CreationMonitoringNotFoundException extends EntityNotFoundException {
+	
+	private static final long serialVersionUID = 1L;
+
+	public CreationMonitoringNotFoundException(String message) {
+		super(message);
+	}
+	
+	public CreationMonitoringNotFoundException(Long chickenLotId) {
+		this(String.format("Não existe um cadastro de Monitoramento de Criação com código %d", chickenLotId));
+	}
+
+}

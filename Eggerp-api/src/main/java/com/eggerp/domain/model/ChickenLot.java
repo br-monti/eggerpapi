@@ -38,7 +38,7 @@ public class ChickenLot {
 	@Column(name = "current_quantity")
 	private int currentQuantity;
 	
-	@NotNull
+	//@NotNull
 	private String debicking;
 
 	@ManyToOne
