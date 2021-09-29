@@ -16,10 +16,10 @@ public class ChickenLotIdInput {
 	@NotNull
 	private Long id;
 	
-	@JsonIgnore
-	private ChickenLineage chickenLineage;
-	
-	@JsonIgnore
-	private Shed shed;
+//	@JsonIgnore
+//	private ChickenLineage chickenLineage;
+//	
+//	@JsonIgnore
+//	private Shed shed;
 	
 }
