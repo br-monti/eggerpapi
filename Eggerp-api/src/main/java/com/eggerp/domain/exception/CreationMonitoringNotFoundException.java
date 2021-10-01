@@ -8,8 +8,8 @@ public class CreationMonitoringNotFoundException extends EntityNotFoundException
 		super(message);
 	}
 	
-	public CreationMonitoringNotFoundException(Long chickenLotId) {
-		this(String.format("Não existe um cadastro de Monitoramento de Criação com código %d", chickenLotId));
+	public CreationMonitoringNotFoundException(Long creationMonitoringId) {
+		this(String.format("Não existe um cadastro de Monitoramento de Criação com código %d", creationMonitoringId));
 	}
 
 }
