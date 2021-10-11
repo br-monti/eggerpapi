@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -49,9 +48,9 @@ public class ChickenLot {
 	@JoinColumn(name = "shed_id")
 	private Shed shed;
 	
-//	@NotNull
-//	@ManyToOne
-//	@JoinColumn(name = "egg_lot_id")
-//	private EggLot eggLot;
+	//@NotNull
+	@ManyToOne
+	@JoinColumn(nullable = false)
+	private EggLot eggLot;
 
 }
