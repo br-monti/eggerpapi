@@ -48,9 +48,9 @@ public class ChickenLot {
 	@JoinColumn(name = "shed_id")
 	private Shed shed;
 	
-	//@NotNull
-	@ManyToOne
-	@JoinColumn(nullable = false)
-	private EggLot eggLot;
+//	//@NotNull
+//	@ManyToOne
+//	@JoinColumn(nullable = false)
+//	private EggLot eggLot;
 
 }

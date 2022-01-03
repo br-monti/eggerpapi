@@ -2,7 +2,6 @@ package com.eggerp.domain.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +29,9 @@ public class EggLot {
 	@JoinColumn(name = "box_color")
 	private String boxColor;
 
-	@OneToMany(mappedBy = "egg_lot", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "eggLot", cascade = CascadeType.ALL)
+	@OneToMany
+	@JoinColumn(name = "egg_lot_id")
 	private List<ChickenLot> chickenLots;
 		
 }

@@ -23,6 +23,16 @@ public class EggLotSpecs {
 						builder.equal((root.get(EggLot_.id)), filter.getId())));
 			}
 			
+//			if (filter.getName() != null) {
+//				predicates.add(builder.like(
+//						builder.lower(root.get("name")), "%" + filter.getName().toLowerCase() + "%"));
+//			}	
+//			
+//			if (filter.getBoxColor() != null) {
+//				predicates.add(builder.like(
+//						builder.lower(root.get("boxColor")), "%" + filter.getBoxColor().toLowerCase() + "%"));
+//			}	
+			
 			if (!(filter.getName().isEmpty())) {
 				predicates.add(builder.like(
 						builder.lower(root.get(EggLot_.name)), "%" + filter.getName().toLowerCase() + "%"));
